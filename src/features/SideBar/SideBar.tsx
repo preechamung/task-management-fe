@@ -23,8 +23,8 @@ const SideBar = () => {
     const isToggle = useAppSelector(selectIsToggle);
     const dispatch = useAppDispatch();
 
-    const [expandedFavorite, setExpandedFavorite] = useState(false)
-    const [expandedProjects, setExpandedProjects] = useState(false)
+    const [expandedFavorite, setExpandedFavorite] = useState(true)
+    const [expandedProjects, setExpandedProjects] = useState(true)
     const [expandedShowAll, setExpandedShowAll] = useState(false)
     const [expandedChannels, setExpandedChannels] = useState(false)
 

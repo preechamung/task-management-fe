@@ -18,7 +18,8 @@ module.exports = {
         charlestongreen: '#292d30',
         brightgray: '#eeeff3',
         dimgray: '#66686c',
-        maximumgreen: '#59932b'
+        maximumgreen: '#59932b',
+        toolbox: '#6c55aa'
       },
       fontFamily: {
         base: ["Albert\\ Sans", 'serif'],
