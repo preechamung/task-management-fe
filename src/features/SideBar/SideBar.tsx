@@ -9,26 +9,33 @@ import { TbUsers } from 'react-icons/tb'
 import { VscSettings } from 'react-icons/vsc'
 import { GiTargeting } from 'react-icons/gi'
 import { CgMathPlus } from 'react-icons/cg'
+import { MdOutlineFavoriteBorder } from 'react-icons/md'
+import { BiNetworkChart } from 'react-icons/bi'
 // components
-import Menu from '../components/Menu'
-import Project from '../components/Project'
+import Menu from '../../components/Menu'
+import Project from '../../components/Project'
+// redux
+import { useAppDispatch, useAppSelector } from '../../app/hook'
+import { selectIsToggle, toggle } from './sideBarSlice'
 
 const SideBar = () => {
 
-    const [toggleMenu, setToggleMenu] = useState(false)
+    const isToggle = useAppSelector(selectIsToggle);
+    const dispatch = useAppDispatch();
+
     const [expandedFavorite, setExpandedFavorite] = useState(false)
     const [expandedProjects, setExpandedProjects] = useState(false)
     const [expandedShowAll, setExpandedShowAll] = useState(false)
     const [expandedChannels, setExpandedChannels] = useState(false)
 
     return (
-        <Container $toggleMenu={toggleMenu}>
+        <Container $isToggle={isToggle}>
             <Header>
-                <h1 className='headtext'>
+                <h1 className={`${isToggle && 'hidden'} headtext`}>
                     brandux
                 </h1>
 
-                <CgMenuRight className='text-brightgray cursor-pointer' size={20} onClick={() => setToggleMenu(!toggleMenu)} />
+                <CgMenuRight className='text-brightgray cursor-pointer' size={20} onClick={() => dispatch(toggle())} />
             </Header>
 
             <MenuSection>
@@ -44,21 +51,23 @@ const SideBar = () => {
             <SectionContainer $expanded={expandedFavorite}>
                 <Section>
                     <SectionHead>
-                        Favorite
+                        {isToggle ? <MdOutlineFavoriteBorder className='cursor-pointer hover:text-brightgray' onClick={() => setExpandedFavorite(!expandedFavorite)} /> : 'Favorite'}
                     </SectionHead>
 
                     {
-                        expandedFavorite ?
-                            <BiChevronUp
-                                className='cursor-pointer'
-                                size={20}
-                                onClick={() => setExpandedFavorite(!expandedFavorite)}
-                            /> :
-                            <BiChevronDown
-                                className='cursor-pointer'
-                                size={20}
-                                onClick={() => setExpandedFavorite(!expandedFavorite)}
-                            />
+                        !isToggle ?
+                            expandedFavorite ?
+                                <BiChevronUp
+                                    className='cursor-pointer'
+                                    size={20}
+                                    onClick={() => setExpandedFavorite(!expandedFavorite)}
+                                /> :
+                                <BiChevronDown
+                                    className='cursor-pointer'
+                                    size={20}
+                                    onClick={() => setExpandedFavorite(!expandedFavorite)}
+                                />
+                            : <></>
                     }
                 </Section>
 
@@ -76,23 +85,25 @@ const SideBar = () => {
             <SectionContainer $expanded={expandedProjects}>
                 <Section>
                     <SectionHead>
-                        Projects
+                        {isToggle ? <FiLayers className='cursor-pointer hover:text-brightgray' onClick={() => setExpandedProjects(!expandedProjects)} /> : 'Projects'}
                     </SectionHead>
 
                     <div className='flex flex-row items-center gap-1'>
-                        <CgMathPlus className='cursor-pointer' />
+                        <CgMathPlus className={`${isToggle && 'hidden'} cursor-pointer`} />
                         {
-                            expandedProjects ?
-                                <BiChevronUp
-                                    className='cursor-pointer'
-                                    size={20}
-                                    onClick={() => setExpandedProjects(!expandedProjects)}
-                                /> :
-                                <BiChevronDown
-                                    className='cursor-pointer'
-                                    size={20}
-                                    onClick={() => setExpandedProjects(!expandedProjects)}
-                                />
+                            !isToggle ?
+                                expandedProjects ?
+                                    <BiChevronUp
+                                        className='cursor-pointer'
+                                        size={20}
+                                        onClick={() => setExpandedProjects(!expandedProjects)}
+                                    /> :
+                                    <BiChevronDown
+                                        className='cursor-pointer'
+                                        size={20}
+                                        onClick={() => setExpandedProjects(!expandedProjects)}
+                                    />
+                                : <></>
                         }
                     </div>
                 </Section>
@@ -105,7 +116,7 @@ const SideBar = () => {
                         <Project imgIcon={''} color={'#ffab41'} name={'AlerSec'} />
 
                         <div className='flex flex-row gap-2 text-dimgray px-5 mt-3 items-center'>
-                            <p className='text-[11px] font-semibold'>
+                            <p className={`${isToggle && 'hidden'} text-[11px] font-semibold`}>
                                 {!expandedShowAll ? `Show All Projects` : `Show Less`}
                             </p>
 
@@ -131,23 +142,25 @@ const SideBar = () => {
             <SectionContainer>
                 <Section>
                     <SectionHead>
-                        Channels
+                        {isToggle ? <BiNetworkChart className='cursor-pointer hover:text-brightgray' /> : 'Channels'}
                     </SectionHead>
 
                     <div className='flex flex-row items-center gap-1'>
-                        <CgMathPlus className='cursor-pointer' />
+                        <CgMathPlus className={`${isToggle && 'hidden'} cursor-pointer`} />
                         {
-                            expandedChannels ?
-                                <BiChevronUp
-                                    className='cursor-pointer'
-                                    size={20}
-                                    onClick={() => setExpandedChannels(!expandedChannels)}
-                                /> :
-                                <BiChevronDown
-                                    className='cursor-pointer'
-                                    size={20}
-                                    onClick={() => setExpandedChannels(!expandedChannels)}
-                                />
+                            !isToggle ?
+                                expandedChannels ?
+                                    <BiChevronUp
+                                        className='cursor-pointer'
+                                        size={20}
+                                        onClick={() => setExpandedChannels(!expandedChannels)}
+                                    /> :
+                                    <BiChevronDown
+                                        className='cursor-pointer'
+                                        size={20}
+                                        onClick={() => setExpandedChannels(!expandedChannels)}
+                                    />
+                                : <></>
                         }
                     </div>
                 </Section>
@@ -161,16 +174,18 @@ export default SideBar
 const Container = tw.div`
     flex
     flex-col
-    ${(p: any) => (p.$toggleMenu ? 'w-30' : 'w-60')}
+    ${(p: any) => (p.$isToggle ? 'w-[60px]' : 'w-60')}
     h-screen
     absolute
     divide-charlestongreen
     divide-y
     divide-y-reverse
     overflow-auto
+    scroll-smooth
+    scrollbar
 `
 
-const Header = tw.div`flex flex-row justify-between items-center p-5`
+const Header = tw.div`flex flex-row justify-between items-center p-5 min-h-[70px]`
 
 const MenuSection = tw.div`flex flex-col pb-5`
 

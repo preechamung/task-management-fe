@@ -4,8 +4,25 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@100;200;300;400;500;600;700&display=swap');
 
+
 @layer components {
     .headtext {
         @apply font-base text-brightgray text-[20px] font-bold
     }
+
+    .scrollbar::-webkit-scrollbar {
+        @apply w-0 h-0
+    }
+
+    .scrollbar::-webkit-scrollbar-track {
+        @apply bg-transparent
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb {
+        @apply hidden
+    }
+
+    /* .scrollbar::-webkit-scrollbar-thumb:hover {
+        @apply bg-transparent
+    } */
 }
