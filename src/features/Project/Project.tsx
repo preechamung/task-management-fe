@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Outlet } from "react-router-dom";
 import { Link, useLocation } from 'react-router-dom';
 import tw from 'tailwind-styled-components'
+// data and model
 import { Menu, munuList } from './menu';
 
 const Project = () => {
@@ -10,6 +11,7 @@ const Project = () => {
     useEffect(() => {
         setUrl(location.pathname);
     }, [location]);
+
     return (
         <Container>
             <Header>
@@ -24,8 +26,8 @@ const Project = () => {
             <MenuContainer>
                 {
                     munuList.map((menu: Menu, index: number) => (
-                        <Link to={menu.url}>
-                            <Item key={index} $active={menu.url === url}>
+                        <Link key={index} to={menu.url}>
+                            <Item $active={menu.url === url}>
                                 {menu.name}
                             </Item>
                         </Link>

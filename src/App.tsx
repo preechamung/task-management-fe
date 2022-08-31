@@ -1,7 +1,10 @@
+import React, { Suspense } from 'react';
 import tw from 'tailwind-styled-components';
 import {
   Routes,
-  Route
+  Route,
+  Navigate,
+  BrowserRouter
 } from 'react-router-dom';
 
 import SideBar from './features/SideBar/SideBar'
@@ -20,6 +23,16 @@ import Members from './features/Project/Members';
 import Channels from './features/Project/Channels';
 import Files from './features/Project/Files';
 
+// const Project = React.lazy(() => import('./features/Project/Project'));
+// const Overview = React.lazy(() => import('./features/Project/Overview'));
+// const List = React.lazy(() => import('./features/Project/List'));
+// const Boards = React.lazy(() => import('./features/Project/Boards'));
+// const Chronology = React.lazy(() => import('./features/Project/Chronology'));
+// const Calendar = React.lazy(() => import('./features/Project/Calendar'));
+// const Members = React.lazy(() => import('./features/Project/Members'));
+// const Channels = React.lazy(() => import('./features/Project/Channels'));
+// const Files = React.lazy(() => import('./features/Project/Files'));
+
 function App() {
   const isToggle = useAppSelector(selectIsToggle);
 
@@ -27,18 +40,22 @@ function App() {
     <div className='bg-erieblack h-screen'>
       <SideBar />
       <Container $isToggle={isToggle}>
-        <Routes>
-          <Route path='/project' element={<Project />}>
-            <Route path="overview" element={<Overview />} />
-            <Route path="list" element={<List />} />
-            <Route path="boards" element={<Boards />} />
-            <Route path="chronology" element={<Chronology />} />
-            <Route path="calendar" element={<Calendar />} />
-            <Route path="members" element={<Members />} />
-            <Route path="channels" element={<Channels />} />
-            <Route path="files" element={<Files />} />
-          </Route>
-        </Routes>
+        <Suspense>
+          <Routes>
+            {/* project group */}
+            <Route path='/project' element={<Project />}>
+              <Route path='' element={<Navigate to='overview' />} />
+              <Route path='overview' element={<Overview />} />
+              <Route path='list' element={<List />} />
+              <Route path='boards' element={<Boards />} />
+              <Route path='chronology' element={<Chronology />} />
+              <Route path='calendar' element={<Calendar />} />
+              <Route path='members' element={<Members />} />
+              <Route path='channels' element={<Channels />} />
+              <Route path='files' element={<Files />} />
+            </Route>
+          </Routes>
+        </Suspense>
       </Container>
     </div>
   );
