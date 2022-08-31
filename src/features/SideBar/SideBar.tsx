@@ -31,7 +31,7 @@ const SideBar = () => {
     return (
         <Container $isToggle={isToggle}>
             <Header>
-                <h1 className={`${isToggle && 'hidden'} headtext`}>
+                <h1 className={`${isToggle && 'hidden'} head__text`}>
                     brandux
                 </h1>
 
@@ -175,7 +175,7 @@ const Container = tw.div`
     flex
     flex-col
     ${(p: any) => (p.$isToggle ? 'w-[60px]' : 'w-60')}
-    h-screen
+    h-full
     absolute
     divide-charlestongreen
     divide-y

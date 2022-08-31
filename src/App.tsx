@@ -4,7 +4,6 @@ import {
   Routes,
   Route,
   Navigate,
-  BrowserRouter
 } from 'react-router-dom';
 
 import SideBar from './features/SideBar/SideBar'
@@ -37,7 +36,7 @@ function App() {
   const isToggle = useAppSelector(selectIsToggle);
 
   return (
-    <div className='bg-erieblack h-screen'>
+    <div className='bg-erieblack h-screen overflow-hidden'>
       <SideBar />
       <Container $isToggle={isToggle}>
         <Suspense>
@@ -62,9 +61,11 @@ function App() {
 }
 
 const Container = tw.div`
+  overflow-x-auto
+  overflow-y-hidden
   ${(p: any) => (p.$isToggle ? 'ml-[60px]' : 'ml-60')}
   bg-raisinblack
-  h-screen
+  h-full
   rounded-tl-3xl
   border-t-2
   border-l-2

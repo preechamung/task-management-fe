@@ -6,8 +6,24 @@
 
 
 @layer components {
-    .headtext {
+    .head__text {
         @apply font-base text-brightgray text-[20px] font-bold
+    }
+
+    .sub__head__text {
+        @apply font-base text-brightgray text-[14px] font-semibold
+    }
+
+    .normal__text {
+        @apply font-base text-gray text-[12px] font-normal
+    }
+
+    .normal__14__text {
+        @apply font-base text-[14px] text-brightgray font-normal
+    }
+
+    .line__curve {
+        border-radius: 0px 0px 0px 250px;
     }
 
     .scrollbar::-webkit-scrollbar {
@@ -21,6 +37,20 @@
     .scrollbar::-webkit-scrollbar-thumb {
         @apply hidden
     }
+
+    /* content */
+    .scrollbar__content::-webkit-scrollbar {
+        @apply w-2 h-2
+    }
+
+    .scrollbar__content::-webkit-scrollbar-track {
+        @apply bg-raisinblack
+    }
+
+    .scrollbar__content::-webkit-scrollbar-thumb {
+        @apply bg-erieblack
+    }
+
 
     /* .scrollbar::-webkit-scrollbar-thumb:hover {
         @apply bg-transparent

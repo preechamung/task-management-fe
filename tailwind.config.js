@@ -17,6 +17,7 @@ module.exports = {
         raisinblack: '#1f2125',
         charlestongreen: '#292d30',
         brightgray: '#eeeff3',
+        gray: '#bdbdbd',
         dimgray: '#66686c',
         maximumgreen: '#59932b',
         toolbox: '#6c55aa'
