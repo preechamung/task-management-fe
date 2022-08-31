@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { useAppSelector } from "../app/hook";
-import { selectIsToggle } from "../features/SideBar/sideBarSlice";
+import { selectIsToggle } from "../features/sideBar/sideBarSlice";
 type MenuProps = {
     icon: JSX.Element;
     name: string;

@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react'
 import { Link } from 'react-router-dom';
 import { BiDotsHorizontalRounded } from 'react-icons/bi'
 import { useAppSelector } from '../app/hook';
-import { selectIsToggle } from '../features/SideBar/sideBarSlice';
+import { selectIsToggle } from '../features/sideBar/sideBarSlice';
 
 type ProjectProps = {
     imgIcon: string;

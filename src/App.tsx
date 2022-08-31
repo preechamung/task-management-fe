@@ -6,10 +6,10 @@ import {
   Navigate,
 } from 'react-router-dom';
 
-import SideBar from './features/SideBar/SideBar'
+import SideBar from './features/sideBar/SideBar'
 import './App.css';
 import { useAppSelector } from './app/hook';
-import { selectIsToggle } from './features/SideBar/sideBarSlice';
+import { selectIsToggle } from './features/sideBar/sideBarSlice';
 // features
 // ***** Project
 import Project from './features/project/Project';
