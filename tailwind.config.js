@@ -15,12 +15,15 @@ module.exports = {
       colors: {
         erieblack: '#161819',
         raisinblack: '#1f2125',
-        charlestongreen: '#292d30',
+        charlestongreen: '#27292d',
         brightgray: '#eeeff3',
+        davysgrey: '#545250',
         gray: '#bdbdbd',
         dimgray: '#66686c',
         maximumgreen: '#59932b',
-        toolbox: '#6c55aa'
+        toolbox: '#6c55aa',
+        flax: '#e9d882',
+        iceberg: '#74b0d9'
       },
       fontFamily: {
         base: ["Albert\\ Sans", 'serif'],

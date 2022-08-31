@@ -12,15 +12,15 @@ import { useAppSelector } from './app/hook';
 import { selectIsToggle } from './features/SideBar/sideBarSlice';
 // features
 // ***** Project
-import Project from './features/Project/Project';
-import Overview from './features/Project/Overview';
-import List from './features/Project/List';
-import Boards from './features/Project/Boards';
-import Chronology from './features/Project/Chronology';
-import Calendar from './features/Project/Calendar';
-import Members from './features/Project/Members';
-import Channels from './features/Project/Channels';
-import Files from './features/Project/Files';
+import Project from './features/project/Project';
+import Overview from './features/project/Overview';
+import List from './features/project/List';
+import Boards from './features/project/Boards';
+import Chronology from './features/project/Chronology';
+import Calendar from './features/project/Calendar';
+import Members from './features/project/Members';
+import Channels from './features/project/Channels';
+import Files from './features/project/Files';
 
 // const Project = React.lazy(() => import('./features/Project/Project'));
 // const Overview = React.lazy(() => import('./features/Project/Overview'));

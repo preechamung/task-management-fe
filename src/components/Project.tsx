@@ -21,7 +21,7 @@ const Project: FunctionComponent<ProjectProps> = ({ imgIcon, color, name }) => {
                             <img className="w-[16px] h-[16px]" src={imgIcon} alt="" /> :
                             <div className={`bg-[${color}] flex justify-center items-center rounded-sm w-[16px] h-[16px] font-bold text-black`}>{name.charAt(0).toLocaleUpperCase()}</div>
                     }
-                    <span className={`${isToggle && 'hidden'} text-brightgray text-[14px] font-semibold`}>{name}</span>
+                    <span className={`${isToggle && 'hidden'} text-brightgray text-[14px] font-semibold font-base`}>{name}</span>
                 </div>
 
                 <BiDotsHorizontalRounded className={`${isToggle && 'hidden'} z-10`} size={20} />
