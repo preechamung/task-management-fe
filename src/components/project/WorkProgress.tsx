@@ -1,6 +1,4 @@
 import { AiFillCheckCircle, AiFillPlusCircle } from 'react-icons/ai'
-import { GiCircle } from 'react-icons/gi'
-import { CgArrowsScrollV } from 'react-icons/cg'
 import { HiSelector } from 'react-icons/hi'
 
 const WorkProgress = () => {
