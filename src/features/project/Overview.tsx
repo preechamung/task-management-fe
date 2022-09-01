@@ -156,9 +156,9 @@ export default Overview
 
 const Container = tw.div`flex flex-row h-auto`
 
-const ProjectInfo = tw.div`flex flex-col w-3/4 px-28 py-10 border-r-2 border-charlestongreen gap-6`
+const ProjectInfo = tw.div`flex flex-col w-3/4 lt-lg:w-3/5 lt-lg:px-10 px-28 py-10 border-r-2 border-charlestongreen gap-6`
 
-const Responsible = tw.div`flex flex-col w-1/4 px-6 py-10 bg-erieblack gap-6`
+const Responsible = tw.div`flex flex-col w-1/4 lt-lg:w-2/5 px-6 py-10 bg-erieblack gap-6`
 
 const Section = tw.div`flex flex-col gap-3`
 
