@@ -1,63 +1,65 @@
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 import tw from 'tailwind-styled-components';
 import {
   Routes,
   Route,
   Navigate,
+  Outlet,
 } from 'react-router-dom';
 
-import SideBar from './features/sideBar/SideBar'
 import './App.css';
 import { useAppSelector } from './app/hook';
-import { selectIsToggle } from './features/sideBar/sideBarSlice';
-// features
-// ***** Project
-import Project from './features/project/Project';
-import Overview from './features/project/Overview';
-import List from './features/project/List';
-import Boards from './features/project/Boards';
-import Chronology from './features/project/Chronology';
-import Calendar from './features/project/Calendar';
-import Members from './features/project/Members';
-import Channels from './features/project/Channels';
-import Files from './features/project/Files';
+import { selectIsToggle } from './features/sideBarSlice';
+// pages
+// ***** Project *****
+import Project from './pages/project/Project';
+import Overview from './pages/project/Overview';
+import List from './pages/project/List';
+import Boards from './pages/project/Boards';
+import Chronology from './pages/project/Chronology';
+import Calendar from './pages/project/Calendar';
+import Members from './pages/project/Members';
+import Channels from './pages/project/Channels';
+import Files from './pages/project/Files';
 
-// const Project = React.lazy(() => import('./features/Project/Project'));
-// const Overview = React.lazy(() => import('./features/Project/Overview'));
-// const List = React.lazy(() => import('./features/Project/List'));
-// const Boards = React.lazy(() => import('./features/Project/Boards'));
-// const Chronology = React.lazy(() => import('./features/Project/Chronology'));
-// const Calendar = React.lazy(() => import('./features/Project/Calendar'));
-// const Members = React.lazy(() => import('./features/Project/Members'));
-// const Channels = React.lazy(() => import('./features/Project/Channels'));
-// const Files = React.lazy(() => import('./features/Project/Files'));
+import SideBar from './pages/sideBar/SideBar'
+import Login from './pages/login/login';
 
 function App() {
+  const isToggle = useAppSelector(selectIsToggle);
+
+  return (
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      
+      <Route path="/" element={<Proteted />}>
+        <Route path='/project' element={<Project />}>
+          <Route path='' element={<Navigate to='overview' />} />
+          <Route path='overview' element={<Overview />} />
+          <Route path='list' element={<List />} />
+          <Route path='boards' element={<Boards />} />
+          <Route path='chronology' element={<Chronology />} />
+          <Route path='calendar' element={<Calendar />} />
+          <Route path='members' element={<Members />} />
+          <Route path='channels' element={<Channels />} />
+          <Route path='files' element={<Files />} />
+        </Route>
+      </Route>
+    </Routes>
+  );
+}
+
+function Proteted() {
   const isToggle = useAppSelector(selectIsToggle);
 
   return (
     <div className='bg-erieblack h-screen overflow-hidden'>
       <SideBar />
       <Container $isToggle={isToggle}>
-        <Suspense>
-          <Routes>
-            {/* project group */}
-            <Route path='/project' element={<Project />}>
-              <Route path='' element={<Navigate to='overview' />} />
-              <Route path='overview' element={<Overview />} />
-              <Route path='list' element={<List />} />
-              <Route path='boards' element={<Boards />} />
-              <Route path='chronology' element={<Chronology />} />
-              <Route path='calendar' element={<Calendar />} />
-              <Route path='members' element={<Members />} />
-              <Route path='channels' element={<Channels />} />
-              <Route path='files' element={<Files />} />
-            </Route>
-          </Routes>
-        </Suspense>
+        <Outlet />
       </Container>
     </div>
-  );
+  )
 }
 
 const Container = tw.div`

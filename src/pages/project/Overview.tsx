@@ -1,6 +1,6 @@
 import tw from 'tailwind-styled-components'
-import Attachment from '../../components/project/Attachment'
-import WorkProgress from '../../components/project/WorkProgress'
+import Attachment from '../../components/Attachment'
+import WorkProgress from '../../components/WorkProgress'
 import { BsThreeDots } from 'react-icons/bs'
 import { AiFillCheckCircle, AiOutlineCheckCircle, AiOutlinePlusCircle, AiOutlineExclamationCircle, AiOutlineFieldTime } from 'react-icons/ai'
 

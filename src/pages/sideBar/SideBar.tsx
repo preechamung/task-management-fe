@@ -16,7 +16,7 @@ import Menu from '../../components/Menu'
 import Project from '../../components/Project'
 // redux
 import { useAppDispatch, useAppSelector } from '../../app/hook'
-import { selectIsToggle, toggle } from './sideBarSlice'
+import { selectIsToggle, toggle } from '../../features/sideBarSlice'
 
 const SideBar = () => {
 
