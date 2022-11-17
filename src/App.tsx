@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import tw from 'tailwind-styled-components';
 import {
   Routes,
@@ -26,13 +25,11 @@ import SideBar from './pages/sideBar/SideBar'
 import Login from './pages/login/login';
 
 function App() {
-  const isToggle = useAppSelector(selectIsToggle);
-
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
       
-      <Route path="/" element={<Proteted />}>
+      <Route path="/" element={<ProtetedRoute />}>
         <Route path='/project' element={<Project />}>
           <Route path='' element={<Navigate to='overview' />} />
           <Route path='overview' element={<Overview />} />
@@ -49,7 +46,7 @@ function App() {
   );
 }
 
-function Proteted() {
+function ProtetedRoute() {
   const isToggle = useAppSelector(selectIsToggle);
 
   return (

@@ -11,7 +11,7 @@ const Login = () => {
 
     return (
         <div className='flex justify-between bg-erieblack h-screen overflow-hidden'>
-            <div className="flex flex-col text-white px-44 lt-md:px-8 w-2/4 lt-xl:w-3/4 lt-lg:w-full justify-center">
+            <div className="flex flex-col text-white px-[13em] lt-md:px-8 w-2/4 lt-xl:w-3/4 lt-lg:w-full justify-center">
                 <div className="text-[32px] font-bold mb-12">Sign in</div>
 
                 <div className='flex flex-col'>
