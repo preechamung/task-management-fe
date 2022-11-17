@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import toggleReducer from "../features/SideBar/sideBarSlice";
+import toggleReducer from "../features/sideBarSlice";
 
 export const store = configureStore({
   reducer: {

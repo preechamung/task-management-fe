@@ -16,22 +16,22 @@ import Menu from '../../components/Menu'
 import Project from '../../components/Project'
 // redux
 import { useAppDispatch, useAppSelector } from '../../app/hook'
-import { selectIsToggle, toggle } from './sideBarSlice'
+import { selectIsToggle, toggle } from '../../features/sideBarSlice'
 
 const SideBar = () => {
 
     const isToggle = useAppSelector(selectIsToggle);
     const dispatch = useAppDispatch();
 
-    const [expandedFavorite, setExpandedFavorite] = useState(false)
-    const [expandedProjects, setExpandedProjects] = useState(false)
+    const [expandedFavorite, setExpandedFavorite] = useState(true)
+    const [expandedProjects, setExpandedProjects] = useState(true)
     const [expandedShowAll, setExpandedShowAll] = useState(false)
     const [expandedChannels, setExpandedChannels] = useState(false)
 
     return (
         <Container $isToggle={isToggle}>
             <Header>
-                <h1 className={`${isToggle && 'hidden'} headtext`}>
+                <h1 className={`${isToggle && 'hidden'} head__text`}>
                     brandux
                 </h1>
 
@@ -175,7 +175,7 @@ const Container = tw.div`
     flex
     flex-col
     ${(p: any) => (p.$isToggle ? 'w-[60px]' : 'w-60')}
-    h-screen
+    h-full
     absolute
     divide-charlestongreen
     divide-y
